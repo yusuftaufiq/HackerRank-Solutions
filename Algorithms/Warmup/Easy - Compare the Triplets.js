@@ -6,10 +6,9 @@
  */
 
 function compareTriplets(arr1, arr2) {
-  const compare = (a, b) => a.map((v, k) => (v > b[k] ? 1 : 0));
-  const sum = (array) => array.reduce((a, v) => a + v);
+  const sum = (x, y) => x.reduce((a, v, k) => a + (v > y[k] ? 1 : 0), 0);
 
-  return [sum(compare(arr1, arr2)), sum(compare(arr2, arr1))];
+  return [sum(arr1, arr2), sum(arr2, arr1)];
 }
 
 compareTriplets([5, 6, 7], [3, 6, 10]);
