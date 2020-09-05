@@ -5,11 +5,11 @@
  * Max Score: 10
  */
 
-function sockMerchant(ar) {
-  const unique = [...new Set(ar)];
+function sockMerchant(arr) {
+  const unique = [...new Set(arr)];
 
   const count = unique.reduce((a, v) => (
-    a + Math.floor(ar.filter((sv) => sv === v).length / 2)
+    a + Math.floor(arr.filter((sv) => sv === v).length / 2)
   ), 0);
 
   return count;
