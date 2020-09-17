@@ -6,9 +6,9 @@
  */
 
 function jumpingOnClouds(c) {
-  const count = c.join('').split(1).map((v) => (
-    Math.ceil(`0${v}`.length / 2)
-  )).reduce((a, v) => a + v);
+  const count = c.join('').split(1).reduce((a, v) => (
+    a + Math.ceil(`0${v}`.length / 2)
+  ), 0);
 
   return count - 1;
 }
