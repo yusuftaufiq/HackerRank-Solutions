@@ -1,5 +1,5 @@
 /**
- * Title: Jumping on the Clouds
+ * Title: 2D Array
  * URL: https://www.hackerrank.com/challenges/2d-array
  * Difficulty: Easy
  * Max Score: 15
@@ -7,16 +7,15 @@
 
 function hourglassSum(arr) {
   const template = Array(arr.length - 2).fill(Array(arr.length - 2).fill());
-  const hourglass = template.map((v, k) => (
-    v.map((sv, sk) => ([
-      arr[k][sk], arr[k][sk + 1], arr[k][sk + 2],
-      arr[k + 1][sk + 1],
-      arr[k + 2][sk], arr[k + 2][sk + 1], arr[k + 2][sk + 2],
-    ]))
+  const sumHourglass = template.map((v, k) => (
+    v.map((sv, sk) => (
+      arr[k][sk] + arr[k][sk + 1] + arr[k][sk + 2]
+      + arr[k + 1][sk + 1]
+      + arr[k + 2][sk] + arr[k + 2][sk + 1] + arr[k + 2][sk + 2]
+    ))
   ));
-  const sum = hourglass.map((v) => v.map((sv) => sv.reduce((a, b) => a + b)));
 
-  return Math.max(...[].concat(...sum));
+  return Math.max(...[].concat(...sumHourglass));
 }
 
 hourglassSum([
